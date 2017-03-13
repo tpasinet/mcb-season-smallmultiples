@@ -71,7 +71,6 @@ extract_game_pbp <- function(game_id) {
 }
 
 extract_quarter_pbp <- function(game_pbp_page, game_quarter) {
-  
   quarter_pbp <- game_pbp_page %>%
     html_nodes(xpath = paste("//div[@id = '", game_quarter,"']//table", sep = ""))
   
