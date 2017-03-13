@@ -6,6 +6,6 @@ An ESPN Men's NCAA Basketball schedule page: http://www.espn.com/mens-college-ba
 
 An ESPN Men's NCAA Basketball play-by-play page: http://www.espn.com/mens-college-basketball/playbyplay?gameId=400916206
 
-![Alt text](https://github.com/tpasinet/mcb-season-smallmultiples/blob/master/plots/wvu_mcb_score_2017.pdf "Cumulative Score by Game")
+![Alt text](https://github.com/tpasinet/mcb-season-smallmultiples/blob/master/plots/wvu_mcb_score_2017.png "Cumulative Score by Game")
 
-![Alt text](https://github.com/tpasinet/mcb-season-smallmultiples/blob/master/plots/wvu_mcb_margin_2017.pdf "Score Margin by Game")
+![Alt text](https://github.com/tpasinet/mcb-season-smallmultiples/blob/master/plots/wvu_mcb_margin_2017.png "Score Margin by Game")
