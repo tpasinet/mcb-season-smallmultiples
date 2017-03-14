@@ -1,6 +1,6 @@
 shinyUI(fluidPage(
   
-  titlePanel(a(href="http://www.espn.com/mens-college-basketball/team/schedule/_/id/277", "WVU Men's Basketball Season 2017")),
+  titlePanel(a(href="http://www.espn.com/mens-college-basketball/team/schedule/_/id/277", "WVU Men's Basketball Season 2017"), "WVU Men's Basketball Season 2017"),
   
   p("Data harvested from ESPN game play-by-play web pages, ",
     a(href="http://www.espn.com/mens-college-basketball/playbyplay?gameId=400916206", "an example play-by-play web page"), ".",
