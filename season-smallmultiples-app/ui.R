@@ -15,10 +15,10 @@ shinyUI(fluidPage(
                  column(11,
                         fluidRow(h4("Fix Axes to the Same Scale"),
                                  column(2,
-                                        checkboxInput("fix_score_axis_x", label = "Fix X Axis", value = TRUE)
+                                        checkboxInput("fix_score_axis_x", label = "Fix X Axis", value = FALSE)
                                  ),
                                  column(10,
-                                        checkboxInput("fix_score_axis_y", label = "Fix Y Axis", value = TRUE)
+                                        checkboxInput("fix_score_axis_y", label = "Fix Y Axis", value = FALSE)
                                  )
                         )
                  )
@@ -35,7 +35,7 @@ shinyUI(fluidPage(
                  column(11,
                         fluidRow(h4("Fix Axes to the Same Scale"),
                                  column(2,
-                                        checkboxInput("fix_margin_axis_x", label = "Fix X Axis", value = TRUE)
+                                        checkboxInput("fix_margin_axis_x", label = "Fix X Axis", value = FALSE)
                                  ),
                                  column(10,
                                         checkboxInput("fix_margin_axis_y", label = "Fix Y Axis", value = TRUE)
