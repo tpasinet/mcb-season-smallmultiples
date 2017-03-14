@@ -2,6 +2,11 @@ shinyUI(fluidPage(
   
   titlePanel(a(href="http://www.espn.com/mens-college-basketball/team/schedule/_/id/277", "WVU Men's Basketball Season 2017")),
   
+  p("Data harvested from ESPN game play-by-play web pages, ",
+    a(href="http://www.espn.com/mens-college-basketball/playbyplay?gameId=400916206", "an example play-by-play web page"), " .",
+    "See this project's code on GitHub, ",
+    a(href="https://github.com/tpasinet/mcb-season-smallmultiples","mcb-season-smallmultiples"), " ."),
+  
   fluidRow(
     tags$head(tags$style(".shiny-plot-output{height:100vh !important;}")),
     tabsetPanel(
