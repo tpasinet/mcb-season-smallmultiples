@@ -3,7 +3,7 @@ library(stringr)
 library(dplyr)
 library(lubridate)
 
-load("./data/season_data_extracted.RData")
+load(file = "../data/season_data_extracted.RData")
 
 season_schedule <- season_schedule_extracted %>%
   mutate(season_year_start = as.character(as.integer(season_year) - 1)) %>%
@@ -23,7 +23,6 @@ season_schedule <- season_schedule_extracted %>%
   mutate(score_opponent_total = if_else(is_win, score_lose, score_win)) %>%
   mutate(opponent_id = str_extract(row_class, "\\d+$")) %>%
   mutate(opponent_id = as.numeric(opponent_id)) %>%
-  mutate(game_index = rownames(.)) %>%
   select(team_id, season_year, game_id, game_index, game_date, opponent_id, opponent, is_home_game, is_win, score_team_total, score_opponent_total)
 
 season_pbp <- season_pbp_extracted %>%
@@ -46,12 +45,18 @@ season_pbp <- season_pbp_extracted %>%
   mutate(play_timestamp = as_datetime(play_timestamp)) %>%
   mutate(period_time_sec = second(period_time_sec)) %>%
   mutate(game_time_sec = second(game_time_sec)) %>%
+  mutate(game_time_min = game_time_sec / 60) %>%
   mutate(game_score_result = paste(as.character(score_team_total), "-", as.character(score_opponent_total), sep = "")) %>%
   mutate(game_title_score = paste(game_date, ifelse(is_home_game, "vs", "@"), opponent, ifelse(is_win, "W", "L"), game_score_result)) %>%
   mutate(game_score_team_margin = score_team_total - score_opponent_total) %>%
   mutate(game_score_team_margin = paste(ifelse(game_score_team_margin > 0, "+", ""), as.character(game_score_team_margin), sep = "")) %>%
   mutate(game_title_margin = paste(game_date, ifelse(is_home_game, "vs", "@"), opponent, ifelse(is_win, "W", "L"), game_score_team_margin)) %>%
+  mutate(play_id = paste(game_id, str_pad(as.character(game_period), 2, "left", "0"), str_pad(as.character(play_period_index), 3, "left", "0"), sep = "")) %>%
   rename(play_description = PLAY) %>%
-  select(extract_timestamp, team_id, season_year, game_id, game_title_score, game_title_margin, game_date, opponent_id, opponent, is_home_game, is_win, score_team_total, score_opponent_total, play_timestamp, game_period, period_time_sec, game_time_sec, play_description, score_team_cumm, score_opponent_cumm, score_combined_total, score_team_diff)
+  select(extract_timestamp, team_id, season_year, game_id, game_title_score, game_title_margin, game_date, opponent_id,
+         opponent, is_home_game, is_win, score_team_total, score_opponent_total, play_id, play_timestamp, game_period, period_time_sec,
+         game_time_sec, game_time_min, play_description, score_team_cumm, score_opponent_cumm, score_combined_total, score_team_diff)
 
-save(season_schedule, season_pbp, file="./data/season_data_transformed.RData")
+save(season_schedule, file="../data/season_scheduled.Rda")
+save(season_pbp, file="../data/season_pbp.Rda")
+

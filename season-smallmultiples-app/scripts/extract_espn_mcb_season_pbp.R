@@ -49,7 +49,8 @@ extract_season_schedule <- function(team_id, season_year) {
     filter(grepl("^[WLDT]\\d", result)) %>%
     mutate(team_id = team_id) %>%
     mutate(season_year = season_year) %>%
-    mutate(game_id = game_ids)
+    mutate(game_id = game_ids) %>%
+    mutate(game_index = row_number())
   
   season_schedule_table
 }
@@ -83,7 +84,8 @@ extract_quarter_pbp <- function(game_pbp_page, game_quarter) {
     .[[1]] %>%
     select(time, PLAY, SCORE) %>%
     mutate(game_quarter = game_quarter) %>%
-    mutate(play_score_change = score_changes)
+    mutate(play_score_change = score_changes) %>%
+    mutate(play_period_index = row_number())
   
   quarter_pbp_table
 }

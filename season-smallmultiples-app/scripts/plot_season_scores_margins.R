@@ -1,9 +1,11 @@
 # Load libraries
+library(ggvis)
 library(ggplot2)
+library(magrittr)
 
-load("./data/season_data_transformed.RData")
+load(file ="./data/season_data_transformed.RData")
 
-ggplot(season_pbp, aes((game_time_sec/60), score_team_cumm)) +
+ggplot(season_pbp, aes(game_time_min, score_team_cumm)) +
   ggtitle("WVU Men's Basketball 2017 Cumulative Score by Game") +
   geom_line(color = "blue") +
   geom_line(aes(y = score_opponent_cumm), color = "gray") +
@@ -15,7 +17,7 @@ ggplot(season_pbp, aes((game_time_sec/60), score_team_cumm)) +
   ylab("Cumulative Points") +
   xlab("Game Timein Minutes")
 
-ggplot(season_pbp, aes((game_time_sec/60), score_team_diff)) +
+ggplot(season_pbp, aes(game_time_min, score_team_diff)) +
   ggtitle("WVU Men's Basketball 2017 Score Margin by Game") +
   geom_line(color = "blue") +
   geom_hline(yintercept = 0, color = "gray") +
