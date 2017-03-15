@@ -1,8 +1,12 @@
+# Initial graphing exploration. Used to make static images and PDFs.
+
 # Load libraries
 library(ggplot2)
 
+# Load transformed PBP data.
 load(file ="season-smallmultiples-app/data/season_pbp.Rda")
 
+# Plot cumulative scores by game
 ggplot(season_pbp, aes(game_time_min, score_team_cumm)) +
   ggtitle("WVU Men's Basketball 2017 Cumulative Score by Game") +
   geom_line(color = "blue") +
@@ -15,6 +19,7 @@ ggplot(season_pbp, aes(game_time_min, score_team_cumm)) +
   ylab("Cumulative Points") +
   xlab("Game Time in Minutes")
 
+# Plot points margin by game.
 ggplot(season_pbp, aes(game_time_min, score_team_diff)) +
   ggtitle("WVU Men's Basketball 2017 Score Margin by Game") +
   geom_line(color = "blue") +
@@ -24,5 +29,5 @@ ggplot(season_pbp, aes(game_time_min, score_team_diff)) +
   facet_wrap(~ game_title_margin, scales = "free_x") +
   theme(strip.text.x = element_text(size = 8)) +
   theme_bw() +
-  ylab("Score Margin") +
+  ylab("Points Margin") +
   xlab("Game Time in Minutes")
