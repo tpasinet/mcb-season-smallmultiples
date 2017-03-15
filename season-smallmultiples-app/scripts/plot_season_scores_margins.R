@@ -1,9 +1,7 @@
 # Load libraries
-library(ggvis)
 library(ggplot2)
-library(magrittr)
 
-load(file ="./data/season_data_transformed.RData")
+load(file ="season-smallmultiples-app/data/season_pbp.Rda")
 
 ggplot(season_pbp, aes(game_time_min, score_team_cumm)) +
   ggtitle("WVU Men's Basketball 2017 Cumulative Score by Game") +
@@ -15,7 +13,7 @@ ggplot(season_pbp, aes(game_time_min, score_team_cumm)) +
   theme(strip.text.x = element_text(size = 8)) +
   theme_bw() +
   ylab("Cumulative Points") +
-  xlab("Game Timein Minutes")
+  xlab("Game Time in Minutes")
 
 ggplot(season_pbp, aes(game_time_min, score_team_diff)) +
   ggtitle("WVU Men's Basketball 2017 Score Margin by Game") +
