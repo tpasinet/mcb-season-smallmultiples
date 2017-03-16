@@ -62,7 +62,5 @@ shinyServer(function(input, output) {
       theme_bw() +
       ylab("Points Margin") +
       xlab("Game Time in Minutes")
-    
   })
-  
 })
