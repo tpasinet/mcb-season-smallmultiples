@@ -10,7 +10,7 @@ shinyUI(fluidPage(
   
   # Describe the application.
   p(
-    "Extending the intent of ESPN's Game Flow graphs this display presents macro and micro patterns of game flow across an entire season using a",
+    "Extending the intent of ESPN's ", a(href = "http://www.espn.com/mens-college-basketball/game?gameId=400916206", "Game Flow"), " graphs this display presents macro and micro patterns of game flow across an entire season using a",
     a(href = "https://en.wikipedia.org/wiki/Small_multiple", "small multiples"),
     " technique. Data was harvested from ESPN game play-by-play web pages, ",
     a(href = "http://www.espn.com/mens-college-basketball/playbyplay?gameId=400916206", "an example play-by-play web page"),
