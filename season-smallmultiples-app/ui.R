@@ -65,13 +65,13 @@ shinyUI(fluidPage(
                           # Define the checkbox for fixing the x axes.
                           column(
                             2,
-                            checkboxInput("fix_score_axis_x", label = "Fix X Axis", value = FALSE)
+                            checkboxInput("fix_score_axis_x", label = "Fix X Axes to the Same Scale", value = FALSE)
                           ),
                           
                           # Define the checkbox for fixing the y axes.
                           column(
                             10,
-                            checkboxInput("fix_score_axis_y", label = "Fix Y Axis", value = FALSE)
+                            checkboxInput("fix_score_axis_y", label = "Fix Y Axes to the Same Scale", value = FALSE)
                           )
                         ))),
         
@@ -117,13 +117,13 @@ shinyUI(fluidPage(
                           # Define the checkbox for fixing the x axes.
                           column(
                             2,
-                            checkboxInput("fix_margin_axis_x", label = "Fix X Axis", value = FALSE)
+                            checkboxInput("fix_margin_axis_x", label = "Fix X Axes to the Same Scale", value = FALSE)
                           ),
                           
                           # Define the checkbox for fixing the y axes.
                           column(
                             10,
-                            checkboxInput("fix_margin_axis_y", label = "Fix Y Axis", value = TRUE)
+                            checkboxInput("fix_margin_axis_y", label = "Fix Y Axes to the Same Scale", value = TRUE)
                           )
                         ))),
         
