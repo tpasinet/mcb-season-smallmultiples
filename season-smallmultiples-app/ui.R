@@ -60,18 +60,18 @@ shinyUI(fluidPage(
                         
                         # Define row containing the controls.
                         fluidRow(
-                          p("Fix Axes to the Same Scale"),
+                          p("Fix Axes to the Same Range"),
                           
                           # Define the checkbox for fixing the x axes.
                           column(
                             2,
-                            checkboxInput("fix_score_axis_x", label = "Fix X Axes to the Same Scale", value = FALSE)
+                            checkboxInput("fix_score_axis_x", label = "Fix X Axes to the Same Range", value = FALSE)
                           ),
                           
                           # Define the checkbox for fixing the y axes.
                           column(
                             10,
-                            checkboxInput("fix_score_axis_y", label = "Fix Y Axes to the Same Scale", value = FALSE)
+                            checkboxInput("fix_score_axis_y", label = "Fix Y Axes to the Same Range", value = FALSE)
                           )
                         ))),
         
