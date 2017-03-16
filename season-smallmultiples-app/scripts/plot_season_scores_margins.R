@@ -21,7 +21,7 @@ ggplot(season_pbp, aes(game_time_min, score_team_cumm)) +
 
 # Plot points margin by game.
 ggplot(season_pbp, aes(game_time_min, score_team_diff)) +
-  ggtitle("WVU Men's Basketball 2017 Score Margin by Game") +
+  ggtitle("WVU Men's Basketball 2017 Points Margin by Game") +
   geom_line(color = "blue") +
   geom_hline(yintercept = 0, color = "gray") +
   geom_vline(xintercept = 20) +
