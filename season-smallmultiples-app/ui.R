@@ -83,8 +83,8 @@ shinyUI(fluidPage(
         ),
         
         # Define the plot output for the cumulative score plots. This is where the graphs display.
-        
         plotOutput("scoresPlot")
+        
         ),
       
       # Define the tab panel containing the points margin plots.
@@ -136,6 +136,7 @@ shinyUI(fluidPage(
         
         # Define the plot output for the cumulative score plots. This is where the graphs display.
         plotOutput("marginPlot")
+        
         )
     )
   )
