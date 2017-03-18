@@ -6,6 +6,7 @@
 library(rvest)
 library(dplyr)
 library(stringr)
+library(ggplot2)
 
 # Load the etracted data.
 # load(file = "season-smallmultiples-app/data/season_data_extracted.RData")
@@ -51,4 +52,27 @@ extract_game_shots <- function(game_id) {
    
 }
 
-test <- extract_game_shots(game_id)
+test <- extract_game_shots(game_id) %>%
+  group_by(is_shot_team_home, shot_coordinate_x, shot_coordinate_y) %>%
+  summarise(shot_points = sum(shot_points))
+
+ggplot(test, aes(x = shot_coordinate_x, y = shot_coordinate_y, z = shot_points, color = is_shot_team_home)) +
+  geom_density_2d(fill=)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
