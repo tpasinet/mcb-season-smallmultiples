@@ -75,6 +75,11 @@ extract_game_pbp <- function(game_id) {
   # Extract the PBP web page html.
   game_pbp_page <- read_html(paste(game_pbp_base_url, game_id, sep = ""))
   
+  # Extract the clubhouse data for use later parsing the combined score and assigning to the correct team
+  game_team_home <- game_pbp_page %>%
+    html_node(xpath = "//div[starts-with(@class,'competitors')]//div[@class = 'team home']//a[@class = 'team-name']") %>%
+    html_attr("data-clubhouse-uid")
+  
   # Extract the quarters values from the divs for each quarter's PBP section. In this case, quarters 1 and 2 represent periods 1 and 2.
   # Any quarter over 2 is an overtime period.
   game_quarters <- game_pbp_page %>%
@@ -84,7 +89,8 @@ extract_game_pbp <- function(game_id) {
   # Extract the PBP data from each quarter's PBP table and, union the resulting rows, and append the game ID in a new column.
   game_pbp_table <- lapply(game_quarters, extract_quarter_pbp, game_pbp_page = game_pbp_page) %>%
     bind_rows() %>%
-    mutate(game_id = game_id)
+    mutate(game_id = game_id) %>%
+    mutate(game_team_home = game_team_home)
   
   game_pbp_table
 }
