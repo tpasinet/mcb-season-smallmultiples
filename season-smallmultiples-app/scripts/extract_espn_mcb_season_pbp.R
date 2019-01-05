@@ -43,7 +43,7 @@ extract_season_schedule <- function(team_id, season_year) {
     gsub("/[A-Z]+$", "", .) %>%
     tolower()
   
-  #Set variable names using the colun headers extracted from the schedule table.
+  #Set variable names using the column headers extracted from the schedule table.
   colnames(season_schedule_table) <- column_headers
   
   # Get game IDs from the score link href.
